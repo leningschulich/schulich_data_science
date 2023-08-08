@@ -104,21 +104,12 @@ from low_article_sale
 WHERE rank = 1;
 
 9.
-SELECT
-article,
-ROUND((SUM(quantity * unit_price) /
-       (SELECT SUM(quantity * unit_price)
-        FROM assignment01.bakery_sales WHERE sale_date
-            BETWEEN '2022-01-01' AND '2022-01-31')) * 100, 2)
-    AS sales_percentage
-FROM
-assignment01.bakery_sales
-WHERE
-sale_date BETWEEN '2022-01-01' AND '2022-01-31'
-GROUP BY
-article
-ORDER BY
-sales_percentage DESC;
+select distinct(article) as product,
+       (sum(quantity * unit_price)/(select sum(quantity*unit_price) from bakery_sales))*100 as revenue_percentage
+from bakery_sales
+where sale_date between '2022-01-01' and '2022-01-31'
+group by article;
+
 
 10.
 SELECT
