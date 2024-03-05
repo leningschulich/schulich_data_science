@@ -58,10 +58,16 @@ print(model.printAttr('X'))
 
 # 假设最优解已经存储在 model 变量中
 
-# 获取约束条件
+# 获取所有约束
 constraints = model.getConstrs()
 
-# 检查每个约束的松弛度
+# 遍历每个约束并检查其松弛值
 for constraint in constraints:
     print("Constraint:", constraint.ConstrName)
     print("Slack:", constraint.Slack)
+    
+    # 如果松弛值为零，则约束是绑定的
+    if constraint.Slack == 0:
+        print("Binding constraint")
+    else:
+        print("Non-binding constraint")
