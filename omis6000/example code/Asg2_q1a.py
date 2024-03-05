@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Feb 24 14:55:15 2024
 
-@author: Group 4
-"""
 from sympy import symbols, Eq, solve
 
 # Define symbols
@@ -23,13 +18,14 @@ kkt_condition2 = Eq(objective_function.diff(p2) + lambda2 * slack2, 0)
 kkt_condition3 = Eq(slack1 * lambda1, 0)
 kkt_condition4 = Eq(slack2 * lambda2, 0)
 
-# Solve the system of equations
-solution = solve((kkt_condition1, kkt_condition2, kkt_condition3, kkt_condition4), (p1, p2, lambda1, lambda2))
+# 解决方案字典
+solution = solve((kkt_condition1, kkt_condition2, kkt_condition3, kkt_condition4), (p1, p2, lambda1, lambda2), dict=True)[0]
 
-# Extract and print the optimal prices
+# 提取并打印最优价格
 optimal_p1 = solution[p1]
 optimal_p2 = solution[p2]
 
 print("Optimal Price for P1:", optimal_p1)
 print("Optimal Price for P2:", optimal_p2)
+
 
