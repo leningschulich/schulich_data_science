@@ -53,3 +53,7 @@ for i in range(1, 121):
 
 # Optimize the model
 model.optimize()
+
+# Print optimal solution
+print("Optimal solution:")
+
