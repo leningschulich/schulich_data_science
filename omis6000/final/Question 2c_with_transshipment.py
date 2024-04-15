@@ -10,8 +10,8 @@ import random
 import numpy as np
 
 # Read data
-distribution = pd.read_csv(r'https://drive.google.com/uc?export=download&id=1gEVBUCwo9oCpGsJbCMe3-umlCiIhIvlU')
-cost_matrix = pd.read_csv(r'https://drive.google.com/uc?export=download&id=1Vbx2eDyWSVQVTY2V61SyezoCF5O7ugVr')
+distribution = pd.read_csv('/Users/frieda/Desktop/schulich/winter/python/A3/distributions.csv')
+cost_matrix = pd.read_csv('/Users/frieda/Desktop/schulich/winter/python/A3/cost_matrix.csv')
 
 # Descriptive statistics
 distribution.describe()
